@@ -1,11 +1,11 @@
-Example
+Localization
 -------
 
-  - [![Gem Version](https://badge.fury.io/rb/example.png)](https://rubygems.org/gems/example)
-  - [![Code Climate](https://codeclimate.com/github/krainboltgreene/example.png)](https://codeclimate.com/github/krainboltgreene/example)
-  - [![Build Status](https://travis-ci.org/krainboltgreene/example.png)](https://travis-ci.org/krainboltgreene/example)
-  - [![Dependency Status](https://gemnasium.com/krainboltgreene/example.png)](https://gemnasium.com/krainboltgreene/example)
-  - [![Coverage Status](https://coveralls.io/repos/krainboltgreene/example/badge.png?branch=master)](https://coveralls.io/r/krainboltgreene/example)
+  - [![Gem Version](https://badge.fury.io/rb/localization.png)](https://rubygems.org/gems/localization)
+  - [![Code Climate](https://codeclimate.com/github/krainboltgreene/localization.png)](https://codeclimate.com/github/krainboltgreene/localization)
+  - [![Build Status](https://travis-ci.org/krainboltgreene/localization.png)](https://travis-ci.org/krainboltgreene/localization)
+  - [![Dependency Status](https://gemnasium.com/krainboltgreene/localization.png)](https://gemnasium.com/krainboltgreene/localization)
+  - [![Coverage Status](https://coveralls.io/repos/krainboltgreene/localization/badge.png?branch=master)](https://coveralls.io/r/krainboltgreene/localization)
 
 
 TODO: Write a gem description
@@ -22,7 +22,7 @@ Installing
 
 Add this line to your application's Gemfile:
 
-    gem "example"
+    gem "localization"
 
 And then execute:
 
@@ -30,7 +30,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install example
+    $ gem install localization
 
 
 Contributing

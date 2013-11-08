@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "example/version"
+require "localization/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "example"
-  spec.version       = Example::VERSION
+  spec.name          = "localization"
+  spec.version       = Localization::VERSION
   spec.authors       = ["Kurtis Rainbolt-Greene"]
   spec.email         = ["me@kurtisrainboltgreene.name"]
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.summary       = %q{A dirt simple localization gem}
   spec.description   = spec.summary
-  spec.homepage      = "http://krainboltgreene.github.com/example"
+  spec.homepage      = "http://krainboltgreene.github.com/localization"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"]
@@ -18,6 +18,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = Dir["test/**/*", "spec/**/*"]
   spec.require_paths = ["lib"]
 
+  spec.add_runtime_dependency "mustache", "~> 0.99"
   spec.add_development_dependency "bundler"
   spec.add_development_dependency "rspec"
   spec.add_development_dependency "mocha"
