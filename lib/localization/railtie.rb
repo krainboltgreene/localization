@@ -26,7 +26,7 @@ class Localization
       end
 
       initializer "localization_railtie.set_localization_paths" do
-        Localization.sources.push(Dir[File.join(::Rails.root, "config", "locale", "*.yml")])
+        Localization.sources.push(*Dir[File.join(::Rails.root, "config", "locale", "*.yml")])
       end
     end
   end
