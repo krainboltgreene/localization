@@ -22,7 +22,7 @@ class Localization
     class Railtie < ::Rails::Railtie
       initializer "localization_railtie.extend_action_controller" do
         ActionController::Base.send :include, Localization::Rails
-        ActionController::Base.helper :localize
+        ActionController::Base.helper_method :localize
       end
 
       initializer "localization_railtie.set_localization_paths" do
