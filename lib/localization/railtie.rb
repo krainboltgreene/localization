@@ -2,13 +2,16 @@ require "localization"
 
 class Localization
   module Rails
-    def action_local
+    def action_localize
       control_local.send(action_name)
     end
+    alias_method :action_local, :action_localize
+    alias_method :view_localize, :action_localize
 
-    def control_local
+    def control_localize
       localize.send(controller_name)
     end
+    alias_method :control_local, :control_localize
 
     def localize
       Localization.new.send(I18n.locale)

@@ -1,5 +1,5 @@
 Localization
--------
+------------
 
   - [![Gem Version](https://badge.fury.io/rb/localization.png)](https://rubygems.org/gems/localization)
   - [![Code Climate](https://codeclimate.com/github/krainboltgreene/localization.png)](https://codeclimate.com/github/krainboltgreene/localization)
@@ -8,13 +8,95 @@ Localization
   - [![Coverage Status](https://coveralls.io/repos/krainboltgreene/localization/badge.png?branch=master)](https://coveralls.io/r/krainboltgreene/localization)
 
 
-TODO: Write a gem description
+The `localization` gem's goal is to provide a smarter more object-oriented approach to internationalization.
 
 
 Using
 =====
 
-TODO: Write usage instructions here
+**RAILS**
+
+In Rails, you'll want to start with making sure your Gemfile requires the right piece:
+
+``` ruby
+# Gemfile
+
+# ...
+gem "localization", "~> 1.1", require: "localization/railtie"
+# ...
+```
+
+Second you'll want to actually have some locale files like this:
+
+``` yml
+# lib/locales/en.yml
+---
+accounts:
+  index:
+    account_list_header: "All Accounts ({{size}} total)"
+```
+
+We render the strings with mustache, so you get the benefit of that library.
+
+Now you'll probably want to access that value in a view somewhere:
+
+``` erb
+<!--- app/views/accounts/index.html.erb --->
+<h1><%= view_localize.account_list_header(size: @accounts.size) %></h1>
+
+<!--- ... --->
+```
+
+Of course if you're like me you probably want this in a presenter and want to build the path yourself:
+
+``` ruby
+class AccountsDecorator
+  # ...
+  def size
+    localize.accounts.index.account_list_header(size: source.size)
+  end
+  # ...
+end
+```
+
+For rails you have access to these shortcuts:
+
+  - `view_localize` or `action_localize` which is equal to `localize.{{controller_name}}.{{action_name}}`
+  - `control_localize` which is the same as `localize.{{controller_name}}`
+  - Finally `localize` which is equal to `Localize.new.{{locale_name}}` like `Localize.new.en`
+
+
+**OTHER**
+
+If you're not wanting that rails interface but want a `localize` shortcut method then you'll need to do:
+
+``` ruby
+require "localization/main"
+```
+
+Of course you'll now need to specify a load path for localizations:
+
+``` ruby
+require "localization/main"
+
+locale_files = Dir[File.join(".", "locale", "*.yml")]
+  # => ["./locale/en.yml"]
+
+Localization.sources = locale_files
+```
+
+At which point you can start using thusly:
+
+``` ruby
+require "localization/main"
+
+locale_files = Dir[File.join(".", "locale", "*.yml")]
+  # => ["./locale/en.yml"]
+
+Localization.sources = locale_files
+
+Localization.new.en.accounts.index.account_list_header(size: 3)
+```
 
 
 Installing
@@ -22,7 +104,7 @@ Installing
 
 Add this line to your application's Gemfile:
 
-    gem "localization"
+    gem "localization", "~> 1.1"
 
 And then execute:
 
