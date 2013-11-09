@@ -18,14 +18,16 @@ class Localization
     end
   end
 
-  class Railtie < ::Rails::Railtie
-    initializer "localization_railtie.extend_action_controller" do
-      ActionController::Base.send :include, Localization::Shortcut
-      ActionController::Base.helper :localize
-    end
+  if defined?(::Rails)
+    class Railtie < ::Rails::Railtie
+      initializer "localization_railtie.extend_action_controller" do
+        ActionController::Base.send :include, Localization::Shortcut
+        ActionController::Base.helper :localize
+      end
 
-    initializer "localization_railtie.set_localization_paths" do
-      Localization.sources.push(Dir[File.join(Rails.root, "lib", "locale", "*.yml"))
+      initializer "localization_railtie.set_localization_paths" do
+        Localization.sources.push(Dir[File.join(Rails.root, "lib", "locale", "*.yml")])
+      end
     end
-  end if defined?(Rails)
+  end
 end

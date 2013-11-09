@@ -14,11 +14,7 @@ class Localization
 
   def initialize(tree = nil, assignments = nil)
     @assignments = assignments || {}
-    @tree = tree || roots.inject({}) do |memo, subtree|
-      memo.tap do |object|
-        object.merge!(subtree)
-      end
-    end
+    @tree = tree || default_tree
   end
 
   def method_missing(name, *arguments, &block)
@@ -34,6 +30,14 @@ class Localization
   end
 
   private
+
+  def default_tree
+    roots.inject({}) do |memo, subtree|
+      memo.tap do |object|
+        object.merge!(subtree)
+      end
+    end
+  end
 
   def roots
     Localization.sources.map do |root|
