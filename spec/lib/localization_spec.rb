@@ -58,7 +58,7 @@ describe Localization do
     end
 
     it "returns content any level up if it can find it" do
-      expect(content.header.to_s).to eq("Funworld")
+      expect(content.name.to_s).to eq("Funworld")
     end
 
     it "returns unfindable message if it can never find it" do
