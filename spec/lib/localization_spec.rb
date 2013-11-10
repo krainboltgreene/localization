@@ -64,6 +64,10 @@ describe Localization do
     it "returns unfindable message if it can never find it" do
       expect(content.woop.to_s).to eq("Localized text missing for woop")
     end
+
+    it "returns unfindable message even if we call other stuff on it" do
+      expect(content.woop.foop.to_s).to eq("Localized text missing for woop")
+    end
   end
 
   # def roots

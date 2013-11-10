@@ -12,10 +12,14 @@ class Localization
     @@sources
   end
 
-  def initialize(tree = nil, assignments = nil, parent = nil)
-    @assignments = assignments || {}
-    @parent = parent
-    @tree = tree || default_tree
+  def initialize(tree = nil, assignments = nil, parent = nil, error = nil)
+    unless error
+      @assignments = assignments || {}
+      @parent = parent
+      @tree = tree || default_tree
+    else
+      @error = error
+    end
   end
 
   def method_missing(name, *arguments, &block)
@@ -24,12 +28,12 @@ class Localization
         Localization.new(@tree[name.to_s], arguments.first, self)
       when !@parent.nil?
         @parent.send(name, arguments.first)
-      else "Localized text missing for #{name}"
+      else Localization.new(nil, nil, nil, @error || "Localized text missing for #{name}")
     end
   end
 
   def to_s
-    Mustache.render(@tree, @assignments)
+    @error || Mustache.render(@tree, @assignments)
   end
 
   private
