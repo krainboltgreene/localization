@@ -12,16 +12,20 @@ class Localization
     @@sources
   end
 
-  def initialize(tree = nil, assignments = nil)
+  def initialize(tree = nil, assignments = nil, parent = nil)
     @assignments = assignments || {}
+    @parent = parent
     @tree = tree || default_tree
   end
 
   def method_missing(name, *arguments, &block)
-    if @tree.respond_to?(:key?) && @tree.key?(name.to_s)
-      Localization.new(@tree[name.to_s], arguments.first)
     else
       super
+    case
+      when @tree.respond_to?(:key?) && @tree.key?(name.to_s)
+        Localization.new(@tree[name.to_s], arguments.first, self)
+      when !@parent.nil?
+        @parent.send(name, arguments.first)
     end
   end
 
