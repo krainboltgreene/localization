@@ -19,13 +19,12 @@ class Localization
   end
 
   def method_missing(name, *arguments, &block)
-    else
-      super
     case
       when @tree.respond_to?(:key?) && @tree.key?(name.to_s)
         Localization.new(@tree[name.to_s], arguments.first, self)
       when !@parent.nil?
         @parent.send(name, arguments.first)
+      else "Localized text missing for #{name}"
     end
   end
 
