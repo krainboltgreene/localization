@@ -2,18 +2,16 @@ require "localization"
 
 class Localization
   module Rails
-    def action_localize
+    def action_local
       control_local.send(action_name)
     end
-    alias_method :action_local, :action_localize
-    alias_method :view_localize, :action_localize
+    alias_method :view_local, :action_local
 
-    def control_localize
-      localize.send(controller_name)
+    def control_local
+      localization.send(controller_name)
     end
-    alias_method :control_local, :control_localize
 
-    def localize
+    def localization
       Localization.new.send(I18n.locale)
     end
   end
@@ -22,10 +20,10 @@ class Localization
     class Railtie < ::Rails::Railtie
       initializer "localization_railtie.extend_action_controller" do
         ActionController::Base.send :include, Localization::Rails
-        ActionController::Base.helper_method :view_localize
-        ActionController::Base.helper_method :action_localize
-        ActionController::Base.helper_method :control_localize
-        ActionController::Base.helper_method :localize
+        ActionController::Base.helper_method :view_local
+        ActionController::Base.helper_method :action_local
+        ActionController::Base.helper_method :control_local
+        ActionController::Base.helper_method :localization
       end
 
       initializer "localization_railtie.set_localization_paths" do

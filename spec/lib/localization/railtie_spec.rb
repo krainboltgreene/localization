@@ -2,18 +2,17 @@ require "spec_helper"
 require "localization/railtie"
 
 describe Localization::Rails do
-  # def action_localize
+  # def action_local
   #   control_local.send(action_name)
   # end
-  # alias_method :action_local, :action_localize
-  # alias_method :view_localize, :action_localize
+  # alias_method :view_local, :action_local
 
-  # def control_localize
-  #   localize.send(controller_name)
+  # def control_local
+  #   localization.send(controller_name)
   # end
-  # alias_method :control_local, :control_localize
+  # alias_method :control_local, :control_local
 
-  # def localize
+  # def localization
   #   Localization.new.send(I18n.locale)
   # end
 end

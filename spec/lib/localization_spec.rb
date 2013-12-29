@@ -1,6 +1,25 @@
 require "spec_helper"
 
 describe Localization do
+  let(:english) do
+    {
+      "en" => {
+        "name" => "Funworld",
+        "pages" => {
+          "splash" => {
+            "title" => "Welcome to {{world}}!"
+          },
+          "header" => "I love lucy."
+        },
+        "accounts" => {
+          "edit" => {
+            "form_header" => "Edit Your Account"
+          }
+        }
+      }
+    }
+  end
+  let(:localization) { described_class.new(english) }
   # def self.sources=(items)
   #   @@sources = items
   # end
@@ -28,25 +47,6 @@ describe Localization do
   # end
 
   describe "#method_missing" do
-    let(:english) do
-      {
-        "en" => {
-          "name" => "Funworld",
-          "pages" => {
-            "splash" => {
-              "title" => "Welcome to {{world}}!"
-            },
-            "header" => "I love lucy."
-          },
-          "accounts" => {
-            "edit" => {
-              "form_header" => "Edit Your Account"
-            }
-          }
-        }
-      }
-    end
-    let(:localization) { described_class.new(english) }
     let(:content) { localization.en.pages.splash }
 
     it "returns rendered content" do
