@@ -14,6 +14,19 @@ class Localization
     def localization
       Localization.new.send(I18n.locale)
     end
+
+    def raw_action_local
+      raw(action_local)
+    end
+    alias_method :raw_view_local, :raw_action_local
+
+    def raw_control_local
+      raw(control_local)
+    end
+
+    def raw_localization
+      raw(localization)
+    end
   end
 
   if defined?(::Rails)
@@ -24,6 +37,10 @@ class Localization
         ActionController::Base.helper_method :action_local
         ActionController::Base.helper_method :control_local
         ActionController::Base.helper_method :localization
+        ActionController::Base.helper_method :raw_view_local
+        ActionController::Base.helper_method :raw_action_local
+        ActionController::Base.helper_method :raw_control_local
+        ActionController::Base.helper_method :raw_localization
       end
 
       initializer "localization_railtie.set_localization_paths" do
