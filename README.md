@@ -1,25 +1,107 @@
-blankgem
---------
+localization
+------------
 
-  - [![Quality](http://img.shields.io/codeclimate/github/krainboltgreene/blankgem.gem.svg?style=flat-square)](https://codeclimate.com/github/krainboltgreene/blankgem.gem)
-  - [![Coverage](http://img.shields.io/codeclimate/coverage/github/krainboltgreene/blankgem.gem.svg?style=flat-square)](https://codeclimate.com/github/krainboltgreene/blankgem.gem)
-  - [![Build](http://img.shields.io/travis-ci/krainboltgreene/blankgem.gem.svg?style=flat-square)](https://travis-ci.org/krainboltgreene/blankgem.gem)
-  - [![Dependencies](http://img.shields.io/gemnasium/krainboltgreene/blankgem.gem.svg?style=flat-square)](https://gemnasium.com/krainboltgreene/blankgem.gem)
-  - [![Downloads](http://img.shields.io/gem/dtv/blankgem.svg?style=flat-square)](https://rubygems.org/gems/blankgem)
-  - [![Tags](http://img.shields.io/github/tag/krainboltgreene/blankgem.gem.svg?style=flat-square)](http://github.com/krainboltgreene/blankgem.gem/tags)
-  - [![Releases](http://img.shields.io/github/release/krainboltgreene/blankgem.gem.svg?style=flat-square)](http://github.com/krainboltgreene/blankgem.gem/releases)
-  - [![Issues](http://img.shields.io/github/issues/krainboltgreene/blankgem.gem.svg?style=flat-square)](http://github.com/krainboltgreene/blankgem.gem/issues)
+  - [![Quality](http://img.shields.io/codeclimate/github/krainboltgreene/localization.gem.svg?style=flat-square)](https://codeclimate.com/github/krainboltgreene/localization.gem)
+  - [![Coverage](http://img.shields.io/codeclimate/coverage/github/krainboltgreene/localization.gem.svg?style=flat-square)](https://codeclimate.com/github/krainboltgreene/localization.gem)
+  - [![Build](http://img.shields.io/travis-ci/krainboltgreene/localization.gem.svg?style=flat-square)](https://travis-ci.org/krainboltgreene/localization.gem)
+  - [![Dependencies](http://img.shields.io/gemnasium/krainboltgreene/localization.gem.svg?style=flat-square)](https://gemnasium.com/krainboltgreene/localization.gem)
+  - [![Downloads](http://img.shields.io/gem/dtv/localization.svg?style=flat-square)](https://rubygems.org/gems/localization)
+  - [![Tags](http://img.shields.io/github/tag/krainboltgreene/localization.gem.svg?style=flat-square)](http://github.com/krainboltgreene/localization.gem/tags)
+  - [![Releases](http://img.shields.io/github/release/krainboltgreene/localization.gem.svg?style=flat-square)](http://github.com/krainboltgreene/localization.gem/releases)
+  - [![Issues](http://img.shields.io/github/issues/krainboltgreene/localization.gem.svg?style=flat-square)](http://github.com/krainboltgreene/localization.gem/issues)
   - [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](http://opensource.org/licenses/MIT)
-  - [![Version](http://img.shields.io/gem/v/blankgem.svg?style=flat-square)](https://rubygems.org/gems/blankgem)
+  - [![Version](http://img.shields.io/gem/v/localization.svg?style=flat-square)](https://rubygems.org/gems/localization)
 
 
-TODO: Write a gem description
+The `localization` gem's goal is to provide a smarter more object-oriented approach to internationalization.
 
 
 Using
 =====
 
-TODO: Write usage instructions here
+**RAILS**
+
+In Rails, you'll want to start with making sure your Gemfile requires the right piece:
+
+``` ruby
+# Gemfile
+
+# ...
+gem "localization", "~> 4.0", require: "localization/railtie"
+# ...
+```
+
+Second you'll want to actually have some locale files like this:
+
+``` yml
+# lib/locales/en.yml
+---
+accounts:
+  index:
+    account_list_header: "All Accounts ({{size}} total)"
+```
+
+We render the strings with mustache, so you get the benefit of that library.
+
+Now you'll probably want to access that value in a view somewhere:
+
+``` erb
+<!--- app/views/accounts/index.html.erb --->
+<h1><%= view_localize.account_list_header(size: @accounts.size) %></h1>
+
+<!--- ... --->
+```
+
+Of course if you're like me you probably want this in a presenter and want to build the path yourself:
+
+``` ruby
+class AccountsDecorator
+  # ...
+  def size
+    localize.accounts.index.account_list_header(size: source.size)
+  end
+  # ...
+end
+```
+
+For rails you have access to these shortcuts:
+
+  - `view_localize` or `action_localize` which is equal to `localize.{{controller_name}}.{{action_name}}`
+  - `control_localize` which is the same as `localize.{{controller_name}}`
+  - Finally `localize` which is equal to `Localize.new.{{locale_name}}` like `Localize.new.en`
+
+
+**OTHER**
+
+If you're not wanting that rails interface but want a `localize` shortcut method then you'll need to do:
+
+``` ruby
+require "localization/main"
+```
+
+Of course you'll now need to specify a load path for localizations:
+
+``` ruby
+require "localization/main"
+
+locale_files = Dir[File.join(".", "locale", "*.yml")]
+  # => ["./locale/en.yml"]
+
+Localization.sources = locale_files
+```
+
+At which point you can start using thusly:
+
+``` ruby
+require "localization/main"
+
+locale_files = Dir[File.join(".", "locale", "*.yml")]
+  # => ["./locale/en.yml"]
+
+Localization.sources = locale_files
+
+Localization.new.en.accounts.index.account_list_header(size: 3)
+```
 
 
 Installing
@@ -27,7 +109,7 @@ Installing
 
 Add this line to your application's Gemfile:
 
-    gem "blankgem", "~> 1.0"
+    gem "localization", "~> 4.0"
 
 And then execute:
 
@@ -35,7 +117,7 @@ And then execute:
 
 Or install it yourself with:
 
-    $ gem install blankgem
+    $ gem install localization
 
 
 Contributing
