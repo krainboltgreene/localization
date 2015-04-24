@@ -46,10 +46,7 @@ We render the strings with mustache, so you get the benefit of that library.
 Now you'll probably want to access that value in a view somewhere:
 
 ``` erb
-<!--- app/views/accounts/index.html.erb --->
 <h1><%= view_localize.account_list_header(size: @accounts.size) %></h1>
-
-<!--- ... --->
 ```
 
 Of course if you're like me you probably want this in a presenter and want to build the path yourself:
