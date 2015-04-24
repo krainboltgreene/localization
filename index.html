@@ -1,92 +1,75 @@
-<!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Localization.gem by krainboltgreene</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Localization.gem</h1>
+      <h2 class="project-tagline">A dirt simple way to access localization data with mustache</h2>
+      <a href="https://github.com/krainboltgreene/localization.gem" class="btn">View on GitHub</a>
+      <a href="https://github.com/krainboltgreene/localization.gem/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/krainboltgreene/localization.gem/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen"/>
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
+    <section class="main-content">
+      <ul>
+<li><a href="https://codeclimate.com/github/krainboltgreene/localization.gem"><img src="http://img.shields.io/codeclimate/github/krainboltgreene/localization.gem.svg?style=flat-square" alt="Quality"></a></li>
+<li><a href="https://codeclimate.com/github/krainboltgreene/localization.gem"><img src="http://img.shields.io/codeclimate/coverage/github/krainboltgreene/localization.gem.svg?style=flat-square" alt="Coverage"></a></li>
+<li><a href="https://travis-ci.org/krainboltgreene/localization.gem"><img src="http://img.shields.io/travis-ci/krainboltgreene/localization.gem.svg?style=flat-square" alt="Build"></a></li>
+<li><a href="https://gemnasium.com/krainboltgreene/localization.gem"><img src="http://img.shields.io/gemnasium/krainboltgreene/localization.gem.svg?style=flat-square" alt="Dependencies"></a></li>
+<li><a href="https://rubygems.org/gems/localization"><img src="http://img.shields.io/gem/dtv/localization.svg?style=flat-square" alt="Downloads"></a></li>
+<li><a href="http://github.com/krainboltgreene/localization.gem/tags"><img src="http://img.shields.io/github/tag/krainboltgreene/localization.gem.svg?style=flat-square" alt="Tags"></a></li>
+<li><a href="http://github.com/krainboltgreene/localization.gem/releases"><img src="http://img.shields.io/github/release/krainboltgreene/localization.gem.svg?style=flat-square" alt="Releases"></a></li>
+<li><a href="http://github.com/krainboltgreene/localization.gem/issues"><img src="http://img.shields.io/github/issues/krainboltgreene/localization.gem.svg?style=flat-square" alt="Issues"></a></li>
+<li><a href="http://opensource.org/licenses/MIT"><img src="http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="License"></a></li>
+<li><a href="https://rubygems.org/gems/localization"><img src="http://img.shields.io/gem/v/localization.svg?style=flat-square" alt="Version"></a></li>
+</ul>
 
-  <title>Localization</title>
-  <meta name="description" content="A dirt simple way to access localization data with mustache">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
-</head>
-
-<body>
-
-  <div class="wrapper">
-    <header>
-      <h1 class="title">Localization</h1>
-    </header>
-    <div id="container">
-      <p class="tagline">A dirt simple way to access localization data with mustache</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          <a href="https://github.com/krainboltgreene/localization/tarball/master" class="download-button tar"><span>Download</span></a>
-          <a href="https://github.com/krainboltgreene/localization/zipball/master" class="download-button zip"><span>Download</span></a>
-          <a href="https://github.com/krainboltgreene/localization" class="code">View Localization on GitHub</a>
-        </div>
-        <span class="blc"></span><span class="trc"></span>
-        </div>
-        <article class="markdown-body">
-          <ul>
-<li><a href="https://rubygems.org/gems/localization"><img src="https://badge.fury.io/rb/localization.png" alt="Gem Version"></a></li>
-<li><a href="https://codeclimate.com/github/krainboltgreene/localization"><img src="https://codeclimate.com/github/krainboltgreene/localization.png" alt="Code Climate"></a></li>
-<li><a href="https://travis-ci.org/krainboltgreene/localization"><img src="https://travis-ci.org/krainboltgreene/localization.png" alt="Build Status"></a></li>
-<li><a href="https://gemnasium.com/krainboltgreene/localization"><img src="https://gemnasium.com/krainboltgreene/localization.png" alt="Dependency Status"></a></li>
-<li><a href="https://coveralls.io/r/krainboltgreene/localization"><img src="https://coveralls.io/repos/krainboltgreene/localization/badge.png?branch=master" alt="Coverage Status"></a></li>
-</ul><p>The <code>localization</code> gem's goal is to provide a smarter more object-oriented approach to internationalization.</p>
+<p>The <code>localization</code> gem's goal is to provide a smarter more object-oriented approach to internationalization.</p>
 
 <h1>
-<a name="using" class="anchor" href="#using"><span class="octicon octicon-link"></span></a>Using</h1>
+<a id="using" class="anchor" href="#using" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using</h1>
 
 <p><strong>RAILS</strong></p>
 
 <p>In Rails, you'll want to start with making sure your Gemfile requires the right piece:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="c1"># Gemfile</span>
+<div class="highlight highlight-ruby"><pre><span class="pl-c"># Gemfile</span>
 
-<span class="c1"># ...</span>
-<span class="n">gem</span> <span class="s2">"localization"</span><span class="p">,</span> <span class="s2">"~&gt; 1.1"</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="s2">"localization/railtie"</span>
-<span class="c1"># ...</span>
-</pre></div>
+<span class="pl-c"># ...</span>
+<span class="pl-k">gem</span> <span class="pl-s"><span class="pl-pds">"</span>localization<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>~&gt; 4.0<span class="pl-pds">"</span></span>, <span class="pl-c1">require:</span> <span class="pl-s"><span class="pl-pds">"</span>localization/railtie<span class="pl-pds">"</span></span>
+<span class="pl-c"># ...</span></pre></div>
 
 <p>Second you'll want to actually have some locale files like this:</p>
 
-<div class="highlight highlight-yml"><pre><span class="c1"># lib/locales/en.yml</span>
-<span class="nn">---</span>
-<span class="l-Scalar-Plain">accounts</span><span class="p-Indicator">:</span>
-  <span class="l-Scalar-Plain">index</span><span class="p-Indicator">:</span>
-    <span class="l-Scalar-Plain">account_list_header</span><span class="p-Indicator">:</span> <span class="s">"All</span><span class="nv"> </span><span class="s">Accounts</span><span class="nv"> </span><span class="s">({{size}}</span><span class="nv"> </span><span class="s">total)"</span>
-</pre></div>
+<div class="highlight highlight-yml"><pre><span class="pl-c"># lib/locales/en.yml</span>
+<span class="pl-s">-<span class="pl-s">--</span></span>
+<span class="pl-s"><span class="pl-ent">accounts:</span></span>
+  <span class="pl-s"><span class="pl-ent">index:</span></span>
+    <span class="pl-s"><span class="pl-ent">account_list_header:</span> <span class="pl-s"><span class="pl-pds">"</span>All Accounts ({{size}} total)<span class="pl-pds">"</span></span></span></pre></div>
 
 <p>We render the strings with mustache, so you get the benefit of that library.</p>
 
 <p>Now you'll probably want to access that value in a view somewhere:</p>
 
-<div class="highlight highlight-erb"><pre><span class="x">&lt;!--- app/views/accounts/index.html.erb ---&gt;</span>
-<span class="x">&lt;h1&gt;</span><span class="cp">&lt;%=</span> <span class="n">view_localize</span><span class="o">.</span><span class="n">account_list_header</span><span class="p">(</span><span class="ss">size</span><span class="p">:</span> <span class="vi">@accounts</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> <span class="cp">%&gt;</span><span class="x">&lt;/h1&gt;</span>
-
-<span class="x">&lt;!--- ... ---&gt;</span>
-</pre></div>
+<div class="highlight highlight-erb"><pre>&lt;<span class="pl-ent">h1</span>&gt;<span class="pl-pse">&lt;%=</span><span class="pl-s1"> view_localize.account_list_header(<span class="pl-c1">size:</span> <span class="pl-smi">@accounts</span>.size) </span><span class="pl-pse"><span class="pl-s1">%</span>&gt;</span>&lt;/<span class="pl-ent">h1</span>&gt;</pre></div>
 
 <p>Of course if you're like me you probably want this in a presenter and want to build the path yourself:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="k">class</span> <span class="nc">AccountsDecorator</span>
-  <span class="c1"># ...</span>
-  <span class="k">def</span> <span class="nf">size</span>
-    <span class="n">localize</span><span class="o">.</span><span class="n">accounts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">account_list_header</span><span class="p">(</span><span class="ss">size</span><span class="p">:</span> <span class="n">source</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-  <span class="k">end</span>
-  <span class="c1"># ...</span>
-<span class="k">end</span>
-</pre></div>
+<div class="highlight highlight-ruby"><pre><span class="pl-k">class</span> <span class="pl-en">AccountsDecorator</span>
+  <span class="pl-c"># ...</span>
+  <span class="pl-k">def</span> <span class="pl-en">size</span>
+    localize.accounts.index.account_list_header(<span class="pl-c1">size:</span> source.size)
+  <span class="pl-k">end</span>
+  <span class="pl-c"># ...</span>
+<span class="pl-k">end</span></pre></div>
 
 <p>For rails you have access to these shortcuts:</p>
 
@@ -99,41 +82,40 @@
 </li>
 <li>Finally <code>localize</code> which is equal to <code>Localize.new.{{locale_name}}</code> like <code>Localize.new.en</code>
 </li>
-</ul><p><strong>OTHER</strong></p>
+</ul>
+
+<p><strong>OTHER</strong></p>
 
 <p>If you're not wanting that rails interface but want a <code>localize</code> shortcut method then you'll need to do:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"localization/main"</span>
-</pre></div>
+<div class="highlight highlight-ruby"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">"</span>localization/main<span class="pl-pds">"</span></span></pre></div>
 
 <p>Of course you'll now need to specify a load path for localizations:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"localization/main"</span>
+<div class="highlight highlight-ruby"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">"</span>localization/main<span class="pl-pds">"</span></span>
 
-<span class="n">locale_files</span> <span class="o">=</span> <span class="no">Dir</span><span class="o">[</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="s2">"locale"</span><span class="p">,</span> <span class="s2">"*.yml"</span><span class="p">)</span><span class="o">]</span>
-  <span class="c1"># =&gt; ["./locale/en.yml"]</span>
+locale_files <span class="pl-k">=</span> <span class="pl-c1">Dir</span>[<span class="pl-c1">File</span>.join(<span class="pl-s"><span class="pl-pds">"</span>.<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>locale<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>*.yml<span class="pl-pds">"</span></span>)]
+  <span class="pl-c"># =&gt; ["./locale/en.yml"]</span>
 
-<span class="no">Localization</span><span class="o">.</span><span class="n">sources</span> <span class="o">=</span> <span class="n">locale_files</span>
-</pre></div>
+<span class="pl-c1">Localization</span>.sources <span class="pl-k">=</span> locale_files</pre></div>
 
 <p>At which point you can start using thusly:</p>
 
-<div class="highlight highlight-ruby"><pre><span class="nb">require</span> <span class="s2">"localization/main"</span>
+<div class="highlight highlight-ruby"><pre><span class="pl-k">require</span> <span class="pl-s"><span class="pl-pds">"</span>localization/main<span class="pl-pds">"</span></span>
 
-<span class="n">locale_files</span> <span class="o">=</span> <span class="no">Dir</span><span class="o">[</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">"."</span><span class="p">,</span> <span class="s2">"locale"</span><span class="p">,</span> <span class="s2">"*.yml"</span><span class="p">)</span><span class="o">]</span>
-  <span class="c1"># =&gt; ["./locale/en.yml"]</span>
+locale_files <span class="pl-k">=</span> <span class="pl-c1">Dir</span>[<span class="pl-c1">File</span>.join(<span class="pl-s"><span class="pl-pds">"</span>.<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>locale<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>*.yml<span class="pl-pds">"</span></span>)]
+  <span class="pl-c"># =&gt; ["./locale/en.yml"]</span>
 
-<span class="no">Localization</span><span class="o">.</span><span class="n">sources</span> <span class="o">=</span> <span class="n">locale_files</span>
+<span class="pl-c1">Localization</span>.sources <span class="pl-k">=</span> locale_files
 
-<span class="no">Localization</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">en</span><span class="o">.</span><span class="n">accounts</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">account_list_header</span><span class="p">(</span><span class="ss">size</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
+<span class="pl-c1">Localization</span>.<span class="pl-k">new</span>.en.accounts.index.account_list_header(<span class="pl-c1">size:</span> <span class="pl-c1">3</span>)</pre></div>
 
 <h1>
-<a name="installing" class="anchor" href="#installing"><span class="octicon octicon-link"></span></a>Installing</h1>
+<a id="installing" class="anchor" href="#installing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing</h1>
 
 <p>Add this line to your application's Gemfile:</p>
 
-<pre><code>gem "localization", "~&gt; 1.1"
+<pre><code>gem "localization", "~&gt; 4.0"
 </code></pre>
 
 <p>And then execute:</p>
@@ -141,13 +123,13 @@
 <pre><code>$ bundle
 </code></pre>
 
-<p>Or install it yourself as:</p>
+<p>Or install it yourself with:</p>
 
 <pre><code>$ gem install localization
 </code></pre>
 
 <h1>
-<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h1>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h1>
 
 <ol>
 <li>Fork it</li>
@@ -155,10 +137,34 @@
 <li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
 <li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
 <li>Create new Pull Request</li>
-</ol><h1>
-<a name="licensing" class="anchor" href="#licensing"><span class="octicon octicon-link"></span></a>Licensing</h1>
+</ol>
 
-<p>Copyright (c) 2013 Kurtis Rainbolt-Greene</p>
+<h1>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changelog</h1>
+
+<ul>
+<li>1.0.0: Initial release</li>
+</ul>
+
+<h1>
+<a id="conduct" class="anchor" href="#conduct" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conduct</h1>
+
+<p>As contributors and maintainers of this project, we pledge to respect all people who contribute through reporting issues, posting feature requests, updating documentation, submitting pull requests or patches, and other activities.</p>
+
+<p>We are committed to making participation in this project a harassment-free experience for everyone, regardless of level of experience, gender, gender identity and expression, sexual orientation, disability, personal appearance, body size, race, age, or religion.</p>
+
+<p>Examples of unacceptable behavior by participants include the use of sexual language or imagery, derogatory comments or personal attacks, trolling, public or private harassment, insults, or other unprofessional conduct.</p>
+
+<p>Project maintainers have the right and responsibility to remove, edit, or reject comments, commits, code, wiki edits, issues, and other contributions that are not aligned to this Code of Conduct. Project maintainers who do not follow the Code of Conduct may be removed from the project team.</p>
+
+<p>Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by opening an issue or contacting one or more of the project maintainers.</p>
+
+<p>This Code of Conduct is adapted from the <a href="http:contributor-covenant.org">Contributor Covenant</a>, version 1.0.0, available at <a href="http://contributor-covenant.org/version/1/0/0/">http://contributor-covenant.org/version/1/0/0/</a></p>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p>Copyright (c) 2014, 2015 Kurtis Rainbolt-Greene</p>
 
 <p>MIT License</p>
 
@@ -180,26 +186,26 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-        </article>
-      </div>
-    </div>
-    <footer>
-      <div class="owner">
-      <p><a href="https://github.com/krainboltgreene" class="avatar"><img src="https://0.gravatar.com/avatar/15d21696a56b183503cf2c82114be9d6?d=https%3A%2F%2Fidenticons.github.com%2F621565b35926d1e7fcfa1f5a8b3740e6.png&amp;r=x&amp;s=60" width="48" height="48"/></a> <a href="https://github.com/krainboltgreene">krainboltgreene</a> maintains <a href="https://github.com/krainboltgreene/localization">Localization</a></p>
 
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/krainboltgreene/localization.gem">Localization.gem</a> is maintained by <a href="https://github.com/krainboltgreene">krainboltgreene</a>.</span>
 
-      </div>
-      <div class="creds">
-        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br/>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
-      </div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <a href="https://github.com/krainboltgreene/localization/tarball/master" class="tar">tar</a><a href="https://github.com/krainboltgreene/localization/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
 
-  
-</body>
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-18715035-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
 </html>
+
